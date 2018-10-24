@@ -1,0 +1,56 @@
+1) Scan Device file procedure
+
+procedure scanDevice:
+    set arrayFiles[] = getInternalFiles()
+    set arrayVDefine = virusDefinition
+    set threatLists[]
+    set threatFound = 0
+
+    loop i in arrayFiles.length:
+      loop j in arrayVDefine.length:
+
+        if arrayFiles[i].getBahaviour() == arrayVDefine.getBahaviour()
+            alert(" Threat found in file" + Threat.Id)
+            threatLists[i] = Threat.Id
+            threatFound++
+        end if
+      end loop
+    end loop
+
+    storeVirusScanHistory( threatLists)
+end procedure
+
+
+
+2) Update Virus definition:
+
+procedure updateDefinition:
+    set existingDefinition = getLocalVirusDefinition()
+    set connectionServer = "https://antiviro.com/update/defintionlist/"
+    set updatedDefinition
+
+    if connectionServer is true :
+        compare (updatedDefinition, existingDefinition)
+
+    end if
+
+end procedure
+
+
+3) Make payment for the ad free version:
+
+procedure upgradeUserStatus:
+    set userStatus
+    set paymentMode
+    set paymentCredentials
+
+    if paymentMode == "Credit Card" or paymentMode == "Debit Card":
+        response=openBankPaymentGateway(paymentCredentials)
+
+        if response == "true":
+            set userStatus = "paid"
+        else:
+            alert "payment failed"
+        end if
+    end if
+end procedure
