@@ -1,56 +1,19 @@
-1) Scan Device file procedure
+// Algorithm to update virus definition
 
-procedure scanDevice:
-    set arrayFiles[] = getInternalFiles()
-    set arrayVDefine = virusDefinition
-    set threatLists[]
-    set threatFound = 0
+Step 1: Start
 
-    loop i in arrayFiles.length:
-      loop j in arrayVDefine.length:
+Step 2: Create variables to receive current version and latest version details
 
-        if arrayFiles[i].getBahaviour() == arrayVDefine.getBahaviour()
-            alert(" Threat found in file" + Threat.Id)
-            threatLists[i] = Threat.Id
-            threatFound++
-        end if
-      end loop
-    end loop
+Step 3: Clear the variables in case it is not empty
 
-    storeVirusScanHistory( threatLists)
-end procedure
+Step 4: Download latest virus definition from the server
 
+Step 5: Check if latest version and current version is similar
 
+Step 6: If current version and latest version matches goto step 8
 
-2) Update Virus definition:
+Step 7: Update current virus definition
 
-procedure updateDefinition:
-    set existingDefinition = getLocalVirusDefinition()
-    set connectionServer = "https://antiviro.com/update/defintionlist/"
-    set updatedDefinition
+Step 8: Notify user "Virus definition is up to date"
 
-    if connectionServer is true :
-        compare (updatedDefinition, existingDefinition)
-
-    end if
-
-end procedure
-
-
-3) Make payment for the ad free version:
-
-procedure upgradeUserStatus:
-    set userStatus
-    set paymentMode
-    set paymentCredentials
-
-    if paymentMode == "Credit Card" or paymentMode == "Debit Card":
-        response=openBankPaymentGateway(paymentCredentials)
-
-        if response == "true":
-            set userStatus = "paid"
-        else:
-            alert "payment failed"
-        end if
-    end if
-end procedure
+Step 9: End
