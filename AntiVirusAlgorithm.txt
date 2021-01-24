@@ -1,0 +1,19 @@
+// Algorithm to update virus definition
+
+Step 1: Start
+
+Step 2: Create variables to receive current version and latest version details
+
+Step 3: Clear the variables in case it is not empty
+
+Step 4: Download latest virus definition from the server
+
+Step 5: Check if latest version and current version is similar
+
+Step 6: If current version and latest version matches goto step 8
+
+Step 7: Update current virus definition
+
+Step 8: Notify user "Virus definition is up to date"
+
+Step 9: End
